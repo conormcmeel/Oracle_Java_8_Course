@@ -5,11 +5,9 @@
  */
 package lesson1;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Map;
-import java.util.TreeMap;
+import java.util.*;
+
+import static java.util.stream.Collectors.toList;
 
 /**
  * @author Speakjava (Simon Ritter)
@@ -48,7 +46,11 @@ public class Lesson1 {
         List<String> list = Arrays.asList(
                 "alpha", "bravo", "charlie", "delta", "echo", "foxtrot");
 
-    /* YOUR CODE HERE */
+        StringBuilder sbr = new StringBuilder();
+
+        list.stream().forEach(s->sbr.append(s.substring(0,1)));
+
+        System.out.println(sbr);
     }
 
     /**
@@ -60,7 +62,8 @@ public class Lesson1 {
         List<String> list = new ArrayList<>(Arrays.asList(
                 "alpha", "bravo", "charlie", "delta", "echo", "foxtrot"));
 
-    /* YOUR CODE HERE */
+        list.stream().filter(s->s.length()%2==0).collect(toList()).forEach(System.out::print);
+        System.out.println();
     }
 
     /**
@@ -72,7 +75,8 @@ public class Lesson1 {
         List<String> list = new ArrayList<>(Arrays.asList(
                 "alpha", "bravo", "charlie", "delta", "echo", "foxtrot"));
 
-    /* YOUR CODE HERE */
+        list.stream().map(String::toUpperCase).collect(toList()).forEach(System.out::println);
+        System.out.println();
     }
 
     /**
@@ -87,7 +91,8 @@ public class Lesson1 {
         map.put("b", 2);
         map.put("a", 1);
 
-    /* YOUR CODE HERE */
+        map.entrySet().stream().map((a)->a.getKey().concat(a.getValue().toString())).forEach(System.out::print);
+        System.out.println();
     }
 
     /**
@@ -98,7 +103,7 @@ public class Lesson1 {
     private void exercise5() {
         List<Integer> list = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
 
-    /* YOUR CODE HERE */
+        new Thread(()->list.forEach(System.out::print)).start();
     }
 
     /**
