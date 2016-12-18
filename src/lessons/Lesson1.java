@@ -3,7 +3,7 @@
  *
  * JDK 8 MOOC Lesson 1 homework
  */
-package lesson1;
+package lessons;
 
 import java.util.*;
 
